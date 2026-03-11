@@ -13,6 +13,9 @@ export const AutomationProvider: React.FC<{ children: React.ReactNode; }> = ({
   const [graphs, setGraphs] = useState<Record<string, GraphInfo>>({});
   const [signals, setSignals] = useState<Record<string, boolean>>({});
   const [weather, setWeather] = useState<Weather>(Weather.Missing);
+  const [hour, setHour] = useState<number | undefined>(undefined);
+  const [day, setDay] = useState<number | undefined>(undefined);
+  const [cycle, setCycle] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +27,9 @@ export const AutomationProvider: React.FC<{ children: React.ReactNode; }> = ({
 
         setSignals(parsed.signals);
         setWeather(parsed.weather);
+        setHour(parsed.hour);
+        setDay(parsed.day);
+        setCycle(parsed.cycle);
 
         setGraphs((prev) => {
           const next = { ...prev };
@@ -70,7 +76,7 @@ export const AutomationProvider: React.FC<{ children: React.ReactNode; }> = ({
   }, []);
 
   return (
-    <AutomationContext.Provider value={{ graphs, signals, weather }}>
+    <AutomationContext.Provider value={{ graphs, signals, weather, hour, day, cycle }}>
       {children}
     </AutomationContext.Provider>
   );

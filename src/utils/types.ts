@@ -21,4 +21,7 @@ export type AutomationState = {
   weather: Weather;
   graphs: Record<string, GraphInfo>;
   signals: Record<string, boolean>;
+  hour?: number;
+  day?: number;
+  cycle?: number;
 };

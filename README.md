@@ -239,6 +239,30 @@ If either signal is missing, the dashboard will show:
 No weather info available
 ```
 
+### Clock signals
+
+Clock signals are used to display the current in-game time. These signals are binary encoded as follow:
+
+```
+HOUR 0
+HOUR 1
+HOUR 2
+HOUR 3
+HOUR 4
+```
+
+The number corresponds to the bit position in a 5-bit binary representation of the hour. Due to ingame limitations, it is easier to pass on negative signals. To do so, simply add a `N` after the bit number:
+
+```
+HOUR 0N
+HOUR 1N
+HOUR 2N
+HOUR 3N
+HOUR 4N
+```
+
+The exact same logic applies to `DAY X` and `CYCLE Y` signals. You can setup as many bits as you want, the page will pick it up. This can allow for example to only update the page every 4th hour by providing only 3 signals instead of 5.
+
 ---
 
 ## Reporting bugs or requesting features
