@@ -10,7 +10,6 @@ const QuestionCircle = FaQuestionCircle as unknown as React.FC;
 
 const Header = ({ openHelp }: { openHelp: () => void }) => {
   const { weather, cycle, day, hour } = useAutomationData();
-  console.log(weather, cycle, day, hour);
 
   return (
     <div className="header">

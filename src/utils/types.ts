@@ -24,4 +24,10 @@ export type AutomationState = {
   hour?: number;
   day?: number;
   cycle?: number;
+  error?: ApiError;
 };
+export enum ApiError {
+  CORS,
+  NOT_FOUND,
+  UNKNOWN,
+}
